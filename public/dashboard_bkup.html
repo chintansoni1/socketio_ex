@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>	
+	var socket = io.connect('http://10.182.241.107:3001');
+	
+	$(document).ready(function() {
+		console.log("ready!!!.");
+	});
+	
+	/****
+		keydown for handling backspace.
+	**/
+	$(document).on('click', '#join-game', function (e) {
+		var user_name = $('#user-name').val();
+		console.log("New player connecting: ", user_name);
+		socket.emit('join-game',user_name);
+	});
+	
+	
+	/***
+		change the UI to load the tic toc grid.
+	**/
+	socket.on('joined-players', function(data) {
+		$('#players').empty();
+		$.each(data, function(key, value) {
+			$("#players").append($('<li>').text(key));
+		});
+	});
+  
+	</script>
+	<div class="container-fluid">
+		<h1>Joined players</h1>
+		<ul id="players">
+			
+		</ul>
+	</div>
+</body>
+</html>

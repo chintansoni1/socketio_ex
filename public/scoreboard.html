@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CTS Expo 2017</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+	<div class="container">
+	<h1>Score board</h1>
+	
+	<div class="form-group">
+		<label id="new-game" type="button" class="btn btn-primary">
+			<span class="icon-plus"></span>New game +
+		</label>
+		<input id="game-pin" class="btn btn-warning" value="1234"/>
+		<label id="start-game" type="button" class="btn btn-success">
+			<span class="icon-plus"></span>Start
+		</label>
+		<label id="stop-game" type="button" class="btn btn-danger">
+			<span class="icon-plus"></span>Stop
+		</label>
+	</div>
+	<table class="table">
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Games</th>
+			<th>Wins</th>
+			<th>Loses</th>
+			<th>Ties</th>
+			<th>Scores</th>
+		</tr>
+		</thead>
+		<tbody id = "tbody" class=".scoreboard">
+		</tbody>
+	</table>
+	</div>
+	<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/js/socket.io-1.2.0.js"></script>	
+	<script type="text/javascript" src="/assets/js/queryCache.js"></script>
+	<script type="text/javascript" src="/assets/js/dashboard.js"></script>
+</body>
+</html>
